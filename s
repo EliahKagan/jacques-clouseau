@@ -1,4 +1,7 @@
 #!/bin/sh
+# s - Views a source code file with syntax highlighting, sometimes with paging.
+#     Uses highlight and, if longer than a screen, less. Uses highlight's
+#     "ansi" output format, or the value of S_OUT_FORMAT if set (and nonempty).
 
 if [ "$#" -ne 1 ]; then
     printf 'Usage: %s FILENAME\n' "$0" >&2
