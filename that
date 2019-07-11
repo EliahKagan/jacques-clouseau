@@ -1,0 +1,9 @@
+#!/bin/sh
+# that - like which, but explicitly traverses symlinks
+
+sep=
+for f in "$@"; do
+    printf "$sep"; sep='\n'
+    f="$(which "$f")" || continue
+    while printf '%s\n' "$f" && f="$(readlink "$f")"; do :; done
+done
