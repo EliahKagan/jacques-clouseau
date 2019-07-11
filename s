@@ -20,7 +20,7 @@ treat_as_long() {
 }
 
 beautify() {
-    highlight -O ansi -- "$path"
+    highlight -O "${S_OUT_FORMAT:-ansi}" -- "$path"
 }
 
 if treat_as_long; then
