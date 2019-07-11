@@ -1,2 +1,2 @@
 #!/bin/sh
-highlight -O ansi "$@" | less -FR
+highlight -O ansi "$@" | less -FRX
