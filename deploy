@@ -1,2 +1,2 @@
 #!/bin/sh
-install -t ~/bin/ s that
+install -t ~/bin/ s t that
