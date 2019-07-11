@@ -9,7 +9,7 @@ path="$1"
 
 treat_as_short() {
     # We will display files known to be sufficiently short witout paging.
-    height="$(tput lines)" && loc="$(wc -l <"$path")" &&
+    height="$(tput lines >/dev/null)" && loc="$(wc -l <"$path" >/dev/null)" &&
         [ "$loc" -le "$((height - 2))" ]
 }
 
