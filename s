@@ -15,7 +15,7 @@ path="$1"
 # to fail will avoid piping to less and thus show cleaner error output.
 treat_as_long() {
     height="$(tput lines 2>/dev/null)" || return "$?"
-    loc="$(wc -l <"$path" 2>/dev/null)" || return "$?"
+    { loc="$(wc -l <"$path")"; } 2>/dev/null || return "$?"
     [ "$loc" -gt "$((height - 2))" ]
 }
 
