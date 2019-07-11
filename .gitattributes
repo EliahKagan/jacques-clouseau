@@ -1,0 +1,5 @@
+# Most files are shell scripts and should always have LF line endings.
+* text eol=lf
+
+# But files in this tree with dots in their names aren't shell scripts.
+*.* text eol=auto
