@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # that - like which, but explicitly traverses symlinks
 
 sep=
 for f in "$@"; do
-    printf "$sep"; sep='\n'
-    f="$(which "$f")" || continue
+    printf '%s' "$sep"; sep=$'\n'
+    f="$(type -P "$f")" || continue
     while printf '%s\n' "$f" && f="$(readlink "$f")"; do :; done
 done
