@@ -15,5 +15,6 @@
 # Most files are shell scripts and should always have LF line endings.
 * text eol=lf
 
-# But files in this tree with dots in their names aren't shell scripts.
+# But (so far) files with dots in their names aren't shell scripts.
+# NOTE: This is simpler than the logic in "check" and may need changing sooner.
 *.* text eol=auto
