@@ -15,11 +15,11 @@
 
 follow() {
     local path
-    path="$(type -P "$1")" || return
+    path="$(type -P -- "$1")" || return
 
     while true; do
         printf '%s\n' "$path"
-        path="$(readlink "$path")" || break
+        path="$(readlink -- "$path")" || break
     done
 }
 
