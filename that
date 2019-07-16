@@ -3,7 +3,7 @@
 
 follow() {
     local path
-    path="$(type -P "$path")" || return
+    path="$(type -P "$1")" || return
 
     while true; do
         printf '%s\n' "$path"
