@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
 # that - like which, but explicitly traverses symlinks
 
+follow() {
+    local path
+    path="$(type -P "$path")" || return
+
+    while true; do
+        printf '%s\n' "$path"
+        path="$(readlink "$path")" || break
+    done
+}
+
 sep=
-for f in "$@"; do
+for arg; do
     printf '%s' "$sep"; sep=$'\n'
-    f="$(type -P "$f")" || continue
-    while printf '%s\n' "$f" && f="$(readlink "$f")"; do :; done
+    follow "$arg"
 done
