@@ -1,4 +1,4 @@
-# jacques-clouseau - *various keen and handy inspectors*
+# jacques-clouseau - various keen and handy inspectors
 
 *Written in 2019 by Eliah Kagan \<degeneracypressure@gmail.com\>.*
 
