@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # penv - prints environment variables case-insensitively
 
 # This file is part of jacques-clouseau, various keen and handy inspectors.
@@ -13,14 +13,14 @@
 # with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-set -ef
+set -efo pipefail
 
-die() {
-    printf '%s: error: %s\n' "$0" "$1" >&2
-    exit 2
-}
+declare -Ai keys
+for key in "${@,,}"; do keys["$key"]=1; done
+readonly -A keys
 
-[ "$#" -ge 1 ] || die 'too few arguments'
-[ "$#" -le 1 ] || die 'too many arguments'
-
-printenv | gawk -F= -vIGNORECASE=1 -vname="$1" '$1 == name'
+printenv | while IFS='=' read -r name value; do
+    if [ -v "keys[${name,,}]" ]; then
+        printf '%s=%s\n' "$name" "$value"
+    fi
+done
