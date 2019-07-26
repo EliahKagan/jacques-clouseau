@@ -1,0 +1,26 @@
+#!/bin/sh
+# penv - prints environment variables case-insensitively
+
+# This file is part of jacques-clouseau, various keen and handy inspectors.
+#
+# Written in 2019 by Eliah Kagan <degeneracypressure@gmail.com>.
+#
+# To the extent possible under law, the author(s) have dedicated all copyright
+# and related and neighboring rights to this software to the public domain
+# worldwide. This software is distributed without any warranty.
+#
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software. If not, see
+# <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+set -ef
+
+die() {
+    printf '%s: error: %s\n' "$0" "$1" >&2
+    exit 2
+}
+
+[ "$#" -ge 1 ] || die 'too few arguments'
+[ "$#" -le 1 ] || die 'too many arguments'
+
+printenv | gawk -F= -vIGNORECASE=1 -vname="$1" '$1 == name'
