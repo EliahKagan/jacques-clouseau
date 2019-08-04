@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# penv - prints environment variables case-insensitively
+# pei - prints environment variables case-insensitively
 
 # This file is part of jacques-clouseau, various keen and handy inspectors.
 #
