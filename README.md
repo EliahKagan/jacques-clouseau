@@ -10,4 +10,4 @@ worldwide. This software is distributed without any warranty.*
 this software. If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.*
 
-This project is a bikeshed of scripts that "inspect" things.
+This project is a bikeshed of scripts that &ldquo;inspect&rdquo; things.
